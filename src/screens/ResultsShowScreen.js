@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import { View, Text } from "react-native";
 
-const ResultsShowScreen = () => {
+// this navigation is passed when navigated from ResultList
+const ResultsShowScreen = ({ navigation }) => {
+  const id = navigation.getParam("id");
   return (
     <View>
-      <Text> Results show screen</Text>
+      <Text>{id}</Text>
     </View>
   );
 };
