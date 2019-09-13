@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, ScrollView } from "react-native";
 import SearchBar from "../components/SearchBar";
 import ResultList from "../components/ResultList";
 //importing the hooks we have created
@@ -25,9 +25,15 @@ const SearchScreen = () => {
       />
       {errorMessage ? <Text>Found :{results.length}</Text> : null}
       <Text>Results Found :{results.length}</Text>
-      <ResultList title="Cost Effective" results={filterResultsByPrice("$")} />
-      <ResultList title="Bit Pricier" results={filterResultsByPrice("$$")} />
-      <ResultList title="Big Spender" results={filterResultsByPrice("$$$")} />
+      {/* scroll view allows to scroll */}
+      <ScrollView>
+        <ResultList
+          title="Cost Effective"
+          results={filterResultsByPrice("$")}
+        />
+        <ResultList title="Bit Pricier" results={filterResultsByPrice("$$")} />
+        <ResultList title="Big Spender" results={filterResultsByPrice("$$$")} />
+      </ScrollView>
     </View>
   );
 };
