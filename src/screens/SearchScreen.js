@@ -7,8 +7,12 @@ const SearchScreen = () => {
 
   return (
     <View>
-      {/* must provide both the term and callback to change it */}
-      <SearchBar term={term} onTermChange={newValue => setTerm(newValue)} />
+      {/* must provide both the term and onTermChange callback to change it */}
+      <SearchBar
+        term={term}
+        onTermChange={newValue => setTerm(newValue)}
+        onTermSubmit={() => console.log("Term is submitted")}
+      />
       <Text> Search Screen</Text>
       <Text>{term}</Text>
     </View>

@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, StyleSheet, TextInput } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 
-const SearchScreen = ({ term, onTermChange }) => {
+const SearchScreen = ({ term, onTermChange, onTermSubmit }) => {
   return (
     <View style={styles.backgroundStyle}>
       <FontAwesome name="search" style={styles.iconStyle} />
@@ -12,8 +12,11 @@ const SearchScreen = ({ term, onTermChange }) => {
         placeholder="Search"
         value={term}
         onChangeText={newTerm => onTermChange(newTerm)}
+        //these 2 must be added
         autoCapitalize="none"
         autoCorrect={false}
+        //this runs when enter/ok button is pressed (initiate search to API)
+        onEndEditing={onTermSubmit}
       />
     </View>
   );
