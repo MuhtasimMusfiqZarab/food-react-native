@@ -1,9 +1,11 @@
 import { createAppContainer, createStackNavigator } from "react-navigation";
 import SearchScreen from "./src/screens/SearchScreen";
+import ResultsShowScreen from "./src/screens/ResultsShowScreen";
 
 const navigator = createStackNavigator(
   {
-    Search: SearchScreen
+    Search: SearchScreen,
+    ResultsShow: ResultsShowScreen
   },
   {
     // this one is the configuration option

@@ -5,7 +5,7 @@ import ResultList from "../components/ResultList";
 //importing the hooks we have created
 import useResults from "../hooks/useResults";
 
-const SearchScreen = () => {
+const SearchScreen = ({ navigation }) => {
   const [term, setTerm] = useState("");
   //extracting values from hooks
   const [searchAPI, results, errorMessage] = useResults();
@@ -26,15 +26,23 @@ const SearchScreen = () => {
         onTermSubmit={() => searchAPI(term)} //term is from the state
       />
       {errorMessage ? <Text>Found :{results.length}</Text> : null}
-      <Text>Results Found :{results.length}</Text>
       {/* scroll view allows to scroll */}
       <ScrollView>
         <ResultList
           title="Cost Effective"
           results={filterResultsByPrice("$")}
+          navigation={navigation}
         />
-        <ResultList title="Bit Pricier" results={filterResultsByPrice("$$")} />
-        <ResultList title="Big Spender" results={filterResultsByPrice("$$$")} />
+        <ResultList
+          title="Bit Pricier"
+          results={filterResultsByPrice("$$")}
+          navigation={navigation}
+        />
+        <ResultList
+          title="Big Spender"
+          results={filterResultsByPrice("$$$")}
+          navigation={navigation}
+        />
       </ScrollView>
     </>
   );
