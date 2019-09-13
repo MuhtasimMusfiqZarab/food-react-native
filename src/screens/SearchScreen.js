@@ -16,7 +16,9 @@ const SearchScreen = () => {
   };
 
   return (
-    <View>
+    // flex: 1 lets the <View> / <> to use the visible area of the screen
+    //use => when contents are cut off and expanding out of the screen
+    <>
       {/* must provide both the term and onTermChange callback to change it */}
       <SearchBar
         term={term}
@@ -34,7 +36,7 @@ const SearchScreen = () => {
         <ResultList title="Bit Pricier" results={filterResultsByPrice("$$")} />
         <ResultList title="Big Spender" results={filterResultsByPrice("$$$")} />
       </ScrollView>
-    </View>
+    </>
   );
 };
 
