@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Image } from "react-native";
 
 const ResultDetail = ({ result }) => {
   return (
-    <View>
+    <View style={styles.container}>
       {/* source receives an object with uri(react native trying to get image from prop  ** need to put fixed height & width to it to show it (as image wants to collups itself)*/}
       <Image source={{ uri: result.image_url }} style={styles.imageStyle} />
       <Text style={styles.nameStyle}> {result.name}</Text>
@@ -15,10 +15,14 @@ const ResultDetail = ({ result }) => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    marginLeft: 15
+  },
   imageStyle: {
     width: 250,
     height: 120,
-    borderRadius: 4
+    borderRadius: 4,
+    marginBottom: 5
   },
   nameStyle: {
     fontWeight: "bold"
