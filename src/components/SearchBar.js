@@ -2,11 +2,19 @@ import React from "react";
 import { View, Text, StyleSheet, TextInput } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 
-const SearchScreen = () => {
+const SearchScreen = ({ term, onTermChange }) => {
   return (
     <View style={styles.backgroundStyle}>
       <FontAwesome name="search" style={styles.iconStyle} />
-      <TextInput style={styles.inputStyle} placeholder="Search" />
+      {/* we are always going to track the input using state (must be in the parent) */}
+      <TextInput
+        style={styles.inputStyle}
+        placeholder="Search"
+        value={term}
+        onChangeText={newTerm => onTermChange(newTerm)}
+        autoCapitalize="none"
+        autoCorrect={false}
+      />
     </View>
   );
 };
